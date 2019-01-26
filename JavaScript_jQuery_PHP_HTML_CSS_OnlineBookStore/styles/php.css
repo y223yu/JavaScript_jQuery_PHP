@@ -1,0 +1,13 @@
+html {
+    width: 800px;
+    margin: 1em auto;
+    background-color: rgb(211, 211, 211);
+}
+body {
+    background-color: white;
+    padding: 20px;
+}
+body table {
+    text-align: center;
+}
+

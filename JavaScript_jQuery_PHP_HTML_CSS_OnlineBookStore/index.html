@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Online Book Store</title>
+        <link rel="stylesheet" href="styles/main.css">
+
+        <script src = "https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src = "jquery-3.3.1.slim.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <script src="js/a4.js"></script>
+    </head>
+    <body>
+        <form id="form" action="a4.php"  onsubmit="ExpressPhone();ExpressionEmail();ExpressPT();submitForm();" method="POST">
+
+            <!-- Book Section-->
+            <fieldset id="choosebook">
+                <legend>Choose Your Books</legend>
+                <label for="javascript">
+                    <img class="checkbox_img" src="images/javascript.jpg" id="javascript_img">
+                </label>
+                    
+                <label for="jquery">
+                    <img class="checkbox_img" src="images/jquery.jpg" id="jquery_img">
+                </label>                
+    
+                <label for="php">
+                    <img class="checkbox_img" src="images/php.jpg" id="php_img">
+                </label>
+
+                <label for="csharp">
+                    <img class="checkbox_img" src="images/csharp.jpg" id="csharp_img">
+                </label><br>
+
+                <label id="priceJV"><b>Price: 15.99$</b></label>
+                <label id="pricejquery"><b>Price: 24.99$</b></label>
+                <label id="pricephp"><b>Price: 17.99$</b></label>
+                <label id="pricecsharp"><b>Price: 14.99$</b></label>
+                <br>
+
+                <input type="checkbox" name="books[]" class="checkbox_input" id="javascript" value="JavaScript">
+                <input type="checkbox" name="books[]" class="checkbox_input" id="jquery" value="jQuery">
+                <input type="checkbox" name="books[]" class="checkbox_input" id="php" value="PHP">
+                <input type="checkbox" name="books[]" class="checkbox_input" id="csharp" value="CSharp"><br>
+                
+                <button type="button" class="minus" id="javascript_minus" onclick="MinusJavascript()">-</button>
+                <input class="qty" type="text" id="javascript_qty" name="javascript_qty" value=0
+                onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');this.value=this.value.replace('.','');">
+                <button type="button" class="plus" id="javascript_plus" onclick="AddJavascript()">+</button>
+
+                <button type="button" class="minus" id="jquery_minus" onclick="MinusJquery()">-</button>
+                <input class="qty" type="text" id="jquery_qty" name="jquery_qty" value="0"
+                onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');this.value=this.value.replace('.','');">
+                <button type="button" class="plus" id="jquery_plus" onclick="AddJquery()">+</button>
+
+                <button type="button" class="minus" id="php_minus" onclick="MinusPhp()">-</button>
+                <input class="qty" type="text" id="php_qty" name="php_qty" value="0"
+                onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');this.value=this.value.replace('.','');">
+                <button type="button" class="plus" id="php_plus" onclick="AddPhp()">+</button>
+
+                <button type="button" class="minus" id="csharp_minus" onclick="MinusCsharp()">-</button>
+                <input class="qty" type="text" id="csharp_qty" name="csharp_qty" value="0"
+                onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');this.value=this.value.replace('.','');">
+                <button type="button" class="plus" id="csharp_plus" onclick="AddCsharp()">+</button>
+            </fieldset>
+
+             
+            <!-- INFORMATION SECTION -->
+            <fieldset id="mailinginformation">
+                <legend>Your Mailing Information</legend>    
+                
+                <label for="firstname">First Name: </label>
+                <input type="text" name="firstname" id="firstname" onblur="toTrim();Capitalization();"><span id="firstnameerror"></span><br>
+                
+                <label for="lastname">Last Name: </label>
+                <input type="text" name="lastname" id="lastname" onblur="toTrim();Capitalization();"><span id="lastnameerror"></span><br>
+                
+                <label for="phonenumber">Phone Number: </label>
+                <input type="tel" name="phonenumber" id="phonenumber" placeholder="999-111-1111" onblur="ExpressPhone()"><span id="phoneerror"></span><br>
+                
+                <label for="email">E-Mail: </label>
+                <input type="text" name="email" id="email" placeholder="xxxxx@xxxxx.xxx" onblur="toTrim();ExpressionEmail();"><span id="emailerror"></span><br>
+
+                <label for="address">Address: </label>
+                <input type="text" name="address" id="address" onblur="toTrim();toCapitalization(this.value)"><span id="addresserror"></span><br>
+                
+                <label for="city">City: </label>
+                <input type="text" name="city" id="city" onblur="toTrim();Capitalization();"><span id="cityerror"></span><br>
+                
+                <label for="province">Province: </label>
+                <input type="text" name="province" id="province" maxlength="2" onblur="toTrim();Capitalization();" placeholder="ON, BC, AB"><span id="provinceerror"></span><br>
+                
+                <label for="postalcode">Postal Code: </label>
+                <input type="text" name="postalcode" id="postalcode" placeholder="A1A 1A1" onblur="ExpressPT();Capitalization();"><span id="postalerror"></span><br>
+            </fieldset>
+            
+
+            <!--SUBMIT SECTION-->
+            <fieldset id="buttons">
+                <legend>Submit Your orders</legend>
+                <input type="submit" class="button" value="Submit"><br>
+                <input type="reset" class="button" value="Reset">
+            </fieldset>
+            
+        </form>
+    </body>
+</html>
