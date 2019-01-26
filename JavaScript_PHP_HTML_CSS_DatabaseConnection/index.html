@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script rel="javacripts/text" src="javacripts/index.js"></script>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+    <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'parttable')">PARTS TABLE</button>
+    <button class="tablinks" onclick="openTab(event, 'vendortable')">VENDORS TABLE</button>
+    <button class="tablinks" onclick="openTab(event, 'parameterquery')">PARAMETER QUERY</button>
+    </div>
+
+    <div id="parttable" class="tabcontent">
+        <h2>PART TABLE</h2><br><br>
+        <form id="partform" onsubmit="runPartForm()" action="parts.php" method="POST" target= "_blank">
+        <!--    <label for="partID">PartID: </label><input id="partID"  type="number" name="partid"><br> -->
+            <label for="vendor#">VendorNo</label><input id="vendor#" type="number" name="vendornumber"> <span id="spanvendor"></span><br>
+            <label for="description">Description</label><input id="description" type="text" name="description"> <span id="spandescrip"></span><br>
+            <label for="onhand">OnHand</label><input id="onhand" type="number" name="onhand"> <span id="spanonhand"></span><br>
+            <label for="onorder">OnOrder</label><input id="onorder" type="number" name="onorder"> <span id="spanonorder"></span><br>
+            <label for="cost">Cost</label><input id="cost" type="number" name="cost"> <span id="spancost"></span><br>
+            <label for="listprice">List Price</label><input id="listprice" type="number" name="listprice"> <span id="spanprice"></span><br>
+            <button class="buttonaction" type="submit">SUBMIT</button>
+            <button class="buttonaction" type="reset">RESET</button>
+        </form>
+    </div>
+
+    <div id="vendortable" class="tabcontent">
+        <h2>VENDOR TABLE</h2><br><br>
+        <form id="vendorform" onsubmit="runVendorForm()" action="vendors.php" method="POST" target= "_blank">
+                <label for="vendor#">VendorNo</label><input id="vendornum" type="number" name="vendorNo"><span id="spanvendornum"></span><br>
+                <label for="vendorname">VendorName</label><input id="vendorname" type="text" name="vendorname"><span id="spanvendorname"></span><br>
+                <label for="address1">Address 1</label><input id="address1" type="text" name="address1"><span id="spanaddress1"></span><br>
+                <label for="address2">Address 2</label><input id="address2" type="text" name="address2"><br>
+                <label for="city">City</label><input id="city" type="text" name="city"><span id="spancity"></span><br>
+                <label for="province">Province</label><input id="province" type="text" name="province"><span id="spanprovince"></span><br>
+                <label for="pt">Postal Code</label><input id="pt" type="text" name="pt"><span id="spanpt"></span><br>
+                <label for="country">Country</label><input id="country" type="text" name="country"><span id="spancountry"></span><br>
+                <label for="phone">Phone</label><input id="phone" type="text" name="phone"><span id="spanphone"></span><br>
+                <label for="fax">Fax</label><input id="fax" type="text" name="fax"><br>
+                <button class="buttonaction" type="submit">SUBMIT</button>
+                <button class="buttonaction" type="reset">RESET</button>
+        </form>
+    </div>
+
+    <div id="parameterquery" class="tabcontent">
+        <h2>PARAMETER QUERY</h2><br><br>
+        <form id="parameterform" onsubmit="runQuery()" action="parameter.php" method="POST" target= "_blank">
+                <label for="partquery">PartID</label><input id="partquery" name="partqueryid"><span id="spanquery"></span><br>
+                <button class="buttonaction" type="submit">SUBMIT</button>
+                <button class="buttonaction" type="reset">RESET</button>
+        </form>
+    </div>    
+</body>
+</html> 
